@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 # the node/service architecture is built with sinatra
-gem 'sinatra', '1.3.6'
+gem 'sinatra', '1.4.4'
 
 # ...and hosted by Thin.
-gem 'thin', '1.5.1'
+gem 'thin', '1.6.1'
 
 # used to generate UUIDs for service names
 gem 'uuidtools', '2.1.4'
@@ -23,15 +23,9 @@ gem 'elasticsearch', '0.4.1'
 
 # cloudfoundry-specific gems for logging and for providing
 # us with some basic foundation for our service.
-gem 'vcap_common', :path => '../../common', :require => ['vcap/common', 'vcap/component']
-gem 'vcap_services_base', :path => '../base'
+gem 'vcap_common'       ,    '3.0.0', :path => '../../common', :require => ['vcap/common', 'vcap/component']
+gem 'vcap_services_base',    '0.2.6', :path => "../base"
 gem 'vcap_logging', '>=0.1.3', :require => ['vcap/logging']
 # stackato's vcap_common relies on eventmachine for event-based triggers
 gem 'eventmachine', '1.0.3'
-gem 'em-http-request', '1.0.3'
-
-group :test do
-  # we need to test our code!
-  gem 'rake', '0.9.6'
-  gem 'rspec', '2.14.1'
-end
+gem 'em-http-request', '1.1.1'
